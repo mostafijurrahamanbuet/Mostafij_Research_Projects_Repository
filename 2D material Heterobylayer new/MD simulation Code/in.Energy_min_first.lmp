@@ -1,0 +1,195 @@
+# -------- Initialization --------
+
+processors * * 1
+
+
+units           metal
+
+dimension       3
+
+boundary        p    p    p
+
+atom_style      atomic
+
+variable foldername string BP_hBN_NEMD
+
+variable thickness equal 12.02
+
+# -------- Atom definition --------
+
+read_data      defected_heterobilayer_DB1_0_pct.data
+
+
+group hBN type 3 4
+group BP  type 1 2
+
+
+# -------- Pair Style --------
+
+pair_style hybrid  sw tersoff lj/cut 10.0
+
+
+# ------------h-BN intra layer Interaction (Tersoff potential)--------------
+
+ 
+pair_coeff * * tersoff   BNC.tersoff NULL NULL  B  N 
+
+
+# ------------Phosphorine intra layer Interaction (Stringler weber potential)--------------
+
+pair_coeff  * * sw bp.sw L U NULL NULL
+
+
+#------------------- interlayer interaction  parameter---------------------
+
+pair_coeff 1 3 lj/cut 0.006291 3.478    # L-N
+
+pair_coeff 1 4 lj/cut 0.010161 3.666    # L-B
+
+pair_coeff 2 3 lj/cut 0.006291 3.478    # U-N
+
+pair_coeff 2 4 lj/cut 0.010161 3.666    # U-B
+
+
+# --------- Neighbor settings-------------------------------
+
+neighbor        2.0 bin
+
+neigh_modify    every 1 delay 0 check yes
+
+
+# -------- Dump Settings --------
+
+dump            dump_all all atom 100 composite_min.dump
+
+dump_modify     dump_all sort id
+
+# -------- Energy Minimization --------
+
+fix 1 all box/relax x 0.0 y 0.0
+
+min_style       cg
+
+minimize        1.0e-4 1.0e-6 10000 100000
+unfix 1
+undump dump_all
+
+ # -------- simulation setting --------------------------
+
+velocity all create 300 3525676 mom yes rot yes dist gaussian       
+ 
+
+#---------- (Define NVT ensemble)---------
+
+fix 1 all nvt temp 300   300  0.05
+
+# -----------------------Output thermodynamic information every 1000 steps ------------
+
+thermo          1000
+
+thermo_style custom step temp etotal ke pe lx ly lz press
+
+thermo_modify lost warn     # First introduce     
+
+restart 100000 restart.*.equil 
+
+dump           1 all atom 100000 Hetero_bylayer.dump   
+
+# ---------------------------------Run the simulation---------------------------------------
+
+timestep        0.0001                  # metal units 0.1 fs
+
+run             2000000                  #100 ps  run
+
+# ----------------------------- write a data file--------------------------
+ 
+unfix 1
+undump 1
+
+
+
+#---------- (Define NVE ensemble)---------
+
+fix 2 all nve
+
+# -----------------------Output thermodynamic information every 1000 steps ------------
+
+thermo          1000
+
+thermo_style custom step temp etotal ke pe lx ly lz press
+
+dump           2 all atom 100000 hetero_bylayer_NVE1.dump 
+    
+
+# ---------------------------------Run the simulation---------------------------------------
+
+run             2000000                   #100 ps  run
+
+# ----------------------------- write a data file--------------------------
+ 
+unfix 2
+undump 2
+
+reset_timestep 0
+
+restart 100000 restart.*
+
+############################################################# Rauf vai thermal conductivity calculation #############
+compute         ke all ke/atom
+variable        temp atom c_ke/(1.5*8.617*10^-5) #Ke=Kb*T*3/2
+compute         chunk all chunk/atom bin/1d x lower 0.05 units reduced
+fix 1 all nve
+fix 5 all thermal/conductivity 10 x 20 swap 5
+ 
+dump vel_hBN hBN custom 50 dump${foldername}.hBN_DB1_X_axis_0_deg.vc vx vy vz
+dump_modify vel_hBN sort id
+
+dump vel_BP BP custom 50 dump${foldername}.BP_DB1_X_axis_0_deg.vc vx vy vz
+dump_modify vel_BP sort id
+
+
+dump mydump all atom 10000 dump${foldername}.MullerPlathe
+
+fix 6 all ave/chunk 10 10 100 chunk v_temp ave running file profile${foldername}.txt
+
+variable delT equal f_6[11][3]-f_6[1][3]
+variable energy equal f_5
+variable time equal "elapsed*dt"
+variable Lx equal lx
+variable Ly equal ly
+
+fix 9 all print 1000 "${time} ${delT} ${energy} ${Lx} ${Ly} ${thickness}" &
+                      file kappa${foldername}.txt screen no title "time delT energy Lx Ly thickness"
+ 
+thermo_style custom step temp etotal lx ly lz elapsed v_delT f_5 cpuremain
+thermo_modify lost warn flush yes
+
+run 4000000
+
+
+
+
+
+ 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
