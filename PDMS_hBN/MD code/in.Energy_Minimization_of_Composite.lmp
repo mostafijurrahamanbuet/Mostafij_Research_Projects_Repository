@@ -1,0 +1,118 @@
+# -------- Initialization --------
+
+units           real
+
+dimension       3
+
+boundary        p    p    p
+
+atom_style      full
+
+# -------- Atom definition --------
+
+read_data      Circular_graphene_into_hBN_with_composite_25parcent.data   # Contains 140 PDMS + 1 hBN sheets
+
+# -------- Pair Style --------
+
+pair_style hybrid lj/class2/coul/long 12.0  tersoff  lj/cut/coul/long 12.0 
+
+
+kspace_style pppm 1e-5                       # Kspace_style declaration 
+
+ 
+bond_style harmonic                          # Bond style
+
+
+angle_style harmonic                         # Angle style
+
+
+dihedral_style harmonic                      # Dihedral style
+
+#------------------- Hybrid/UA parameter---------------------
+
+pair_coeff 1 1 lj/class2/coul/long 0.0800 3.30
+
+pair_coeff 1 2 lj/class2/coul/long 0.0772 3.94
+
+pair_coeff 1 3 lj/cut/coul/long 0.1247 3.38
+
+pair_coeff 2 2 lj/class2/coul/long 0.1310 4.29
+
+pair_coeff 2 3 lj/cut/coul/long 0.1596 3.83
+
+pair_coeff 3 3 lj/cut/coul/long 0.1944 3.73
+
+
+# ------------h-BN intra layer Interaction (Tersoff potential)--------------
+
+ 
+pair_coeff * * tersoff   BNCDope.tersoff NULL NULL NULL B N C 
+
+
+# -------------Cross-interactions: PDMS (1,2,3) ↔ hBN (4,5,6)--------------------
+
+
+ pair_coeff 1 4 lj/cut/coul/long 0.119933  3.469
+
+ pair_coeff 1 5 lj/cut/coul/long 0.074242  3.2805
+
+ pair_coeff 1 6 lj/cut/coul/long 0.073891  3.35
+
+ pair_coeff 2 4 lj/cut/coul/long 0.153472  3.964
+
+ pair_coeff 2 5 lj/cut/coul/long 0.095  3.7755
+
+ pair_coeff 2 6 lj/cut/coul/long 0.094555  3.845
+
+ pair_coeff 3 4 lj/cut/coul/long 0.1869  3.684
+                                                                                                                                      
+ pair_coeff 3 5 lj/cut/coul/long 0.1157  3.4955
+
+ pair_coeff 3 6 lj/cut/coul/long 0.115185  3.565
+
+
+
+#-------------------Bond Coefficient-------------------------
+
+bond_coeff 1 350.12 1.64
+
+bond_coeff 2 189.65 1.90
+
+#-------------------Angle Coefficient------------------------
+
+angle_coeff 3 49.97 109.24
+
+angle_coeff 1 49.97 110.69
+
+angle_coeff 2 94.5 107.82
+
+angle_coeff 4 14.14 146.46
+
+
+#-------------------Dihedral_coeff--------------------------
+
+dihedral_coeff 2 0.01 1 3
+
+dihedral_coeff 1 0.225 1 1
+
+# --------- Neighbor settings-------------------------------
+
+neighbor        2.0 bin
+
+neigh_modify    every 1 delay 0 check yes
+
+
+# -------- Dump Settings --------
+
+dump            dump_all all atom 100 composite_min.dump
+
+dump_modify     dump_all sort id
+
+# -------- Energy Minimization --------
+
+min_style       cg
+
+minimize        1.0e-4 1.0e-6 10000 100000
+
+write_data      25_parcent_heterostucture_min.data
+

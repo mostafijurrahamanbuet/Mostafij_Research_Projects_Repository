@@ -1,0 +1,62 @@
+tolerance 2.0
+
+filetype pdb
+
+output Defected_hBN_with_composite_25parcent.pdb
+
+ 
+# hBN layer 1 (Top)
+ 
+structure 25_parcent_carbon_doped.pdb
+  number 1
+  fixed 0. 0. 40.0  0. 0. 0.
+end structure
+
+ 
+# hBN layer 2 (middle)
+ 
+structure 25_parcent_carbon_doped.pdb
+  number 1
+  fixed 0. 0. 0.  0. 0. 0.
+end structure
+
+ 
+# hBN layer 3 (bottom)
+ 
+structure 25_parcent_carbon_doped.pdb
+  number 1
+  fixed 0. 0. -40.0  0. 0. 0.
+end structure
+
+ 
+# PDMS Top
+ 
+structure Singel_Chain_PDMS.pdb
+  number 15
+  inside box -20.0 -20.0  40.0   94.0  63.0 80.0
+end structure
+
+ 
+# PDMS between hBN 1 and hBN 2
+ 
+structure Singel_Chain_PDMS.pdb
+  number 13
+  inside box -20.0 -20.0  0.0   94.0  63.0 40.0
+end structure
+
+ 
+# PDMS between hBN 2 and hBN 3
+ 
+structure Singel_Chain_PDMS.pdb
+  number 13
+  inside box -20.0 -20.0  -40.0   94.0  63.0  0.0
+end structure
+
+ 
+# PDMS bottom
+ 
+structure Singel_Chain_PDMS.pdb
+  number 15
+  inside box -20.0 -20.0  -80.0   94.0  63.0 -40.0
+end structure
+
