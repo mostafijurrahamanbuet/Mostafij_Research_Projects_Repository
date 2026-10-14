@@ -68,13 +68,7 @@ The simulations examine isolated and clustered vacancy defects introduced into t
 
 **Graphical Abstract**
 
-*Graphical abstract available; upload pending.*
-
-<!-- Activate after uploading the graphical abstract:
-
-![Graphical Abstract - Vacancy-Engineered Thermal Transport](2D%20material%20Heterobylayer%20new/figures/visual_abstract.png)
-
--->
+ ![Vacancy-Engineered Thermal Transport in h-BN/Phosphorene Heterobilayers](2D%20material%20Heterobylayer%20new/graphical_abstract.png)
 
 **Research Files**
 
