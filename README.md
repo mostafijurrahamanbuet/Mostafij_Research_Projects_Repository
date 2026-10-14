@@ -25,15 +25,11 @@ This study investigates the effects of **filler composition, volume fraction, an
 
 The research aims to identify promising filler configurations for enhancing thermal transport in polymer-based thermal interface materials.
 
-**Graphical Abstract**
 
-*To be added.*
+### Graphical Abstract
 
-<!-- Activate after uploading the graphical abstract:
+![Thermal Conductivity Enhancement in PDMS Nanocomposites](PDMS_hBN/graphical_abstract.png)
 
-![Graphical Abstract - PDMS Nanocomposites](PDMS_hBN/figures/graphical_abstract.png)
-
--->
 
 **Research Files**
 
