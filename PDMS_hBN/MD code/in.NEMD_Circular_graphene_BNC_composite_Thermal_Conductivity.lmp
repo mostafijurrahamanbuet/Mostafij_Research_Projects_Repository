@@ -1,0 +1,216 @@
+# -------- Initialization --------
+
+units           real
+
+dimension       3
+
+boundary        p    p    p
+
+atom_style      full
+
+# -------- Atom definition --------
+
+read_restart      25%_circular_BNC_composite_NPT.restart
+
+# -------- Pair Style --------
+
+pair_style hybrid lj/class2/coul/long 12.0  tersoff  lj/cut/coul/long 12.0 
+
+  
+
+ kspace_style pppm 1e-5                       # Kspace_style declaration 
+
+ 
+bond_style harmonic                          # Bond style
+
+
+angle_style harmonic                         # Angle style
+
+
+dihedral_style harmonic                      # Dihedral style
+
+
+
+
+#------------------- Hybrid/UA parameter---------------------
+
+pair_coeff 1 1 lj/class2/coul/long 0.0800 3.30
+
+pair_coeff 1 2 lj/class2/coul/long 0.0772 3.94
+
+pair_coeff 1 3 lj/cut/coul/long 0.1247 3.38
+
+pair_coeff 2 2 lj/class2/coul/long 0.1310 4.29
+
+pair_coeff 2 3 lj/cut/coul/long 0.1596 3.83
+
+pair_coeff 3 3 lj/cut/coul/long 0.1944 3.73
+
+
+# ------------h-BN intra layer Interaction (Tersoff potential)--------------
+
+ 
+pair_coeff * * tersoff   BNC.tersoff NULL NULL NULL B N C 
+
+
+# -------------Cross-interactions: PDMS (1,2,3) ↔ hBN (4,5,6)--------------------
+
+
+ pair_coeff 1 4 lj/cut/coul/long 0.119933  3.469
+
+ pair_coeff 1 5 lj/cut/coul/long 0.074242  3.2805
+
+ pair_coeff 1 6 lj/cut/coul/long 0.073891  3.35
+
+ pair_coeff 2 4 lj/cut/coul/long 0.153472  3.964
+
+ pair_coeff 2 5 lj/cut/coul/long 0.095  3.7755
+
+ pair_coeff 2 6 lj/cut/coul/long 0.094555  3.845
+
+ pair_coeff 3 4 lj/cut/coul/long 0.1869  3.684
+                                                                                                                                      
+ pair_coeff 3 5 lj/cut/coul/long 0.1157  3.4955
+
+ pair_coeff 3 6 lj/cut/coul/long 0.115185  3.565
+
+
+
+#-------------------Bond Coefficient-------------------------
+
+bond_coeff 1 350.12 1.64
+
+bond_coeff 2 189.65 1.90
+
+#-------------------Angle Coefficient------------------------
+
+angle_coeff 3 49.97 109.24
+
+angle_coeff 1 49.97 110.69
+
+angle_coeff 2 94.5 107.82
+
+angle_coeff 4 14.14 146.46
+
+
+#-------------------Dihedral_coeff--------------------------
+
+dihedral_coeff 2 0.01 1 3
+
+dihedral_coeff 1 0.225 1 1
+
+# --------- Neighbor settings-------------------------------
+
+neighbor        2.0 bin
+
+neigh_modify    every 1 delay 0 check yes
+
+
+restart 100000 pdms_composite_*.restart
+
+
+dump 1 all custom 100000 movie.lammpstrj id type x y z
+dump_modify 1 append no
+
+compute xmin all reduce min x
+compute xmax all reduce max x
+
+thermo_style  custom step temp vol etotal c_xmin c_xmax
+run 0
+
+
+variable Xmin equal c_xmin
+variable Xmax equal c_xmax
+variable Xmid equal (${Xmin}+${Xmax})/2
+
+compute   ke1 all ke/atom
+variable  tempt1 atom c_ke1*2/3/0.0019854534
+compute   layers1 all chunk/atom bin/1d x lower 1.0 nchunk every units box
+fix       4 all ave/chunk 1 20000 20000 layers1 v_tempt1  density/mass file ./tmp_profile.data
+
+
+restart   100000 restart.* #restart
+
+timestep        0.25                        # real units 1 fs
+
+fix mom all momentum 2500 linear 1 1 1 rescale
+
+##Variables
+
+variable dx1 equal ${Xmin}+5
+
+variable dx2 equal ${Xmax}-5
+
+variable h1 equal ${Xmid}-5
+variable h2 equal ${Xmid}+5
+
+variable T equal 280
+variable HiT equal ${T}+20
+variable LoT equal ${T}-20
+variable Run_steps equal 48000000
+
+########region########
+region hot block ${h1} ${h2} INF INF INF INF units box
+region cold1 block ${Xmin} ${dx1} INF INF INF INF units box
+region cold2 block ${dx2} ${Xmax} INF INF INF INF units box
+group hot region hot
+group cold1 region cold1
+group cold2 region cold2
+
+
+thermo_style    custom step temp vol pe ke etotal density spcpu 
+thermo         1000
+
+fix 6 all nve
+
+
+###nemd heat flux##########
+
+fix hot_rescale hot temp/rescale 1 ${HiT} ${HiT} 0.001 1.0
+fix cold_rescale1 cold1 temp/rescale 1 ${LoT} ${LoT} 0.001 1.0
+fix cold_rescale2 cold2 temp/rescale 1 ${LoT} ${LoT} 0.001 1.0
+
+compute cold_temp1 cold1 temp/region cold1
+compute cold_temp2 cold2 temp/region cold2
+compute hot_temp hot temp/region hot
+
+fix_modify cold_rescale1 temp cold_temp1
+fix_modify cold_rescale2 temp cold_temp2
+fix_modify hot_rescale temp hot_temp
+
+fix 8 all ave/time 1 100 100 f_hot_rescale f_cold_rescale1 f_cold_rescale2 file ./flux.out
+
+
+run ${Run_steps}
+
+
+
+
+
+
+
+
+
+
+
+
+ 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ 
