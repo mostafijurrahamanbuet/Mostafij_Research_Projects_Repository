@@ -72,10 +72,21 @@ The simulations examine isolated and clustered vacancy defects introduced into t
 
 **Research Files**
 
-- **Simulation Code:** LAMMPS input scripts for RNEMD simulations — *Upload pending*
-- **Simulation Data:** Pristine and vacancy-defected heterobilayer structures and LAMMPS data files — *Upload pending*
-- **PDOS Analysis Code:** Python scripts for calculating and analyzing phonon density of states — *Upload pending*
-- **Graphical Abstract:** Illustration of the heterobilayer structure, vacancy configurations, simulation methodology, and analysis — *Upload pending*
+The following research materials, molecular structures, simulation scripts, and Python analysis tools are available in the repository.
+
+| Research Materials | Description | Access |
+|---|---|---|
+| **LAMMPS RNEMD Simulation Code** | Molecular equilibration and Müller–Plathe RNEMD simulations for thermal conductivity calculations | [Explore Simulation Code →](2D%20material%20Heterobylayer%20new/MD%20simulation%20Code/) |
+| **Pristine and Defected Heterobilayer Structures** | LAMMPS data files for pristine, DB1, DB3, and DB5 vacancy configurations | [Explore Simulation Data →](2D%20material%20Heterobylayer%20new/Data%20file/) |
+| **Interatomic Force Fields** | Tersoff potential for h-BN and Stillinger–Weber potential for black phosphorene | [View Force Fields →](2D%20material%20Heterobylayer%20new/Force_field/) |
+| **Python: Layer-Resolved PDOS Analysis** | Python script for atomic velocity processing and FFT-based phonon density of states calculations | [Explore Python Analysis Code →](2D%20material%20Heterobylayer%20new/PDOS%20Analysis/) |
+| **Graphical Abstract** | Research workflow showing vacancy configurations, RNEMD methodology, and phonon analysis | [View Graphical Abstract →](2D%20material%20Heterobylayer%20new/graphical_abstract.png) |
+| **Representative Heterobilayer Structure** | Atomistic visualization of the vacancy-defected h-BN/BP heterobilayer | [View Molecular Structure →](2D%20material%20Heterobylayer%20new/Defected%20heterobilayer.png) |
+
+**Explore Complete Research Project:** [Vacancy-Engineered Thermal Transport in h-BN/BP Heterobilayers →](2D%20material%20Heterobylayer%20new/)
+
+**Research Status:** Manuscript in preparation. Numerical results are not publicly included at this stage.
+
 
 **Research Status:** Manuscript in preparation.
 
