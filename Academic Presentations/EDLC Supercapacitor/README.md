@@ -16,13 +16,17 @@ It focuses on the simulation methodology of crumpled graphene-based EDLCs and th
 
 ## Graphical Abstract
 
-*Graphical abstract to be added.*
+![Graphical Abstract - EDLC Supercapacitor](graphical%20abstract%20EDLC%20supercapacitor.png)
+
+*Graphical overview of electric double-layer capacitor technology and the computational investigation of crumpled graphene-based EDLC supercapacitors.*
 
 ---
 
 ## Presentation Slides
 
-*Presentation PDF to be uploaded.*
+**[View Complete EDLC Supercapacitor Presentation (PDF) →](EDLC%20Supecapacitor%20Presentation1.pdf)**
+
+The presentation covers the theoretical background of EDLC energy storage, the simulation methodology, and the investigation of a published computational study.
 
 ---
 
