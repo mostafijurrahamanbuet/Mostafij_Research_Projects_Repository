@@ -114,35 +114,98 @@ The temperature gradient was obtained by linear fitting of the steady-state temp
 
 ## Research Files
 
-The following folders contain the simulation inputs, molecular structures, and force-field data used in this research.
+This repository provides the molecular structures, LAMMPS simulation scripts, interatomic potentials, and Python tools used for molecular structure preparation and NEMD data analysis.
 
-| Category | Description | Files |
+| Research Materials | Description | Access |
 |---|---|---|
-| Simulation Code | LAMMPS inputs for energy minimization, equilibration, and NEMD simulations | [View Code](MD%20code/) |
-| Simulation Data | PDB molecular structures and LAMMPS data files | [View Data](Data%20file/) |
-| Force Field | B–N–C Tersoff potential parameters | [View Force Field](Force%20field/) |
-| Structure Preparation | Python script for converting PDB structures into LAMMPS data files | Upload pending |
-| Data Analysis | Python scripts for processing temperature profiles and thermostat energy-exchange data | Upload pending |
+| **LAMMPS Simulation Scripts** | Energy minimization, NPT equilibration, and NEMD thermal conductivity simulations | [Explore Simulation Codes →](MD%20code/) |
+| **Molecular Structures & Simulation Data** | PDB structures and LAMMPS molecular data files | [Explore Simulation Data →](Data%20file/) |
+| **Interatomic Potential** | B–N–C Tersoff potential parameters | [View Force Field →](Force%20field/) |
+| **Python: Molecular Structure Data file Preparation from PDB file** | PDB-to-LAMMPS conversion and molecular topology generation | [Explore Python Code →](Structure%20Preparation/) |
+| **Python: NEMD Thermal Transport Analysis** | Temperature-profile and thermostat energy-exchange data processing | [Explore Analysis Codes →](Analysis%20Code/) |
 
 ---
 
-## Data Analysis
+## Featured Python Tools
 
-### Temperature Profile Analysis
+The following Python scripts were used for molecular structure preparation and post-processing of LAMMPS simulation outputs.
 
-Python scripts are used to extract and average spatial temperature data from LAMMPS outputs.
+### 1. Python-Based Molecular Structure Preparation and Topology Generation
 
-The processed data can be used to construct temperature profiles and determine the temperature gradient through subsequent linear fitting.
+**[View Python Source Code →](Structure%20Preparation/pdb_to_lammps_data.py)**
 
-### Heat Flux Analysis
+**[Explore Structure Preparation Documentation →](Structure%20Preparation/)**
 
-Python scripts are used to extract and filter thermostat energy-exchange data from LAMMPS outputs.
+This Python script processes molecular structures in PDB format and generates LAMMPS-compatible data files for molecular dynamics simulations.
 
-The processed data can be used to evaluate the steady-state energy transfer rate and calculate heat flux.
+**Key Functionalities:**
 
-The thermal conductivity is then obtained from the heat flux and temperature gradient using Fourier's law.
+- Processing atomic coordinates from PDB files.
+- Identifying PDMS and two-dimensional filler atoms.
+- Assigning atom types, masses, and partial charges.
+- Constructing molecular topology, including bonds, angles, and dihedrals.
+- Defining simulation box dimensions.
+- Generating LAMMPS data files for subsequent molecular dynamics simulations.
 
-*Analysis scripts will be added to the repository.*
+**Programming Language:** Python
+
+**Libraries:** MDAnalysis, NumPy
+
+**Technical Note:** The script uses structure-specific atom-numbering assumptions and predefined input settings.
+
+---
+
+### 2. Python-Based NEMD Temperature Profile and Heat Flux Data Analysis
+
+**[Explore Python Analysis Tools →](Analysis%20Code/)**
+
+These scripts process spatial temperature and thermostat energy-exchange data generated during non-equilibrium molecular dynamics simulations.
+
+#### A. Temperature Profile Processing
+
+**[View Temperature Profile Python Code →](Analysis%20Code/Temperature_Profile.py)**
+
+This script processes spatially resolved temperature data from LAMMPS simulation outputs.
+
+**Key Functionalities:**
+
+- Reading LAMMPS temperature-profile output files.
+- Selecting simulation data within specified timestep intervals.
+- Extracting temperature values from individual spatial bins.
+- Calculating time-averaged temperatures for each spatial bin.
+- Preparing temperature data for profile visualization and subsequent temperature-gradient calculations.
+
+#### B. Heat Flux Data Processing
+
+**[View Heat Flux Python Code →](Analysis%20Code/Flux_Profile.py)**
+
+This script extracts and filters thermostat energy-exchange data generated during NEMD simulations.
+
+**Key Functionalities:**
+
+- Reading thermostat energy-exchange output files.
+- Filtering data over selected timestep intervals.
+- Extracting energy-exchange information from hot and cold regions.
+- Exporting processed data to Excel format.
+- Preparing energy-exchange data for subsequent heat-flux calculations.
+
+**Programming Language:** Python
+
+**Libraries:** Pandas, OpenPyXL
+
+---
+
+## Thermal Transport Analysis Workflow
+
+The post-processing workflow consists of the following stages:
+
+1. **Temperature Profile Extraction:** Calculate time-averaged temperatures across spatial bins.
+2. **Temperature Gradient Analysis:** Determine the temperature gradient by linear fitting of steady-state temperature profiles.
+3. **Energy-Exchange Analysis:** Extract thermostat energy-exchange data over the selected steady-state interval.
+4. **Heat Flux Evaluation:** Calculate heat flux from the energy transfer rate and cross-sectional area.
+5. **Thermal Conductivity Calculation:** Determine effective thermal conductivity using Fourier's law.
+
+The uploaded Python scripts perform temperature and energy-exchange data extraction and averaging. The subsequent gradient fitting, heat-flux evaluation, and thermal conductivity calculations require additional post-processing.
 
 ---
 
@@ -187,4 +250,12 @@ Department of Mechanical Engineering
 Bangladesh University of Engineering and Technology (BUET), Dhaka, Bangladesh  
 *Corresponding Author*
 
-[Email](mailto:mostafijur.rahaman.buet@gmail.com)
+---
+
+## Contact
+
+**Mostafijur Rahaman**  
+Department of Mechanical Engineering  
+Bangladesh University of Engineering and Technology (BUET)
+
+**Email:** [mostafijur.rahaman.buet@gmail.com](mailto:mostafijur.rahaman.buet@gmail.com)
