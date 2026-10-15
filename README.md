@@ -193,23 +193,28 @@ The study examines mechanical loading and stress distribution using principles o
 
 ---
 
+
+---
+
 ## Academic Presentations
 
-### 1. EDLC Supercapacitors and Molecular Dynamics of Crumpled Graphene
+### 1. Electric Double-Layer Capacitor (EDLC) Supercapacitor
 
-**Energy and Environment | Energy Storage | Molecular Dynamics**
+**Electrochemical Energy Storage | Supercapacitors | Crumpled Graphene | Molecular Dynamics**
 
-This presentation discussed the importance of **electric double-layer capacitors (EDLCs)** as energy-storage devices, focusing on their fundamental operating principles and potential applications.
+[**Explore Presentation Folder →**](Academic%20Presentations/EDLC%20Supercapacitor/)
 
-The presentation also explored the **molecular dynamics simulation methodology for crumpled graphene-based EDLC supercapacitors**, highlighting the role of graphene nanostructures in electrochemical energy-storage research.
+This presentation introduces the fundamental principles and energy-storage mechanisms of **electric double-layer capacitors (EDLCs)**, with particular emphasis on crumpled graphene-based supercapacitors.
 
-**Presentation Slides:** *PDF to be uploaded.*
+The presentation also discusses the molecular dynamics simulation methodology and the computational validation of a published research study.
 
-<!-- Activate after uploading the slides:
+**Graphical Abstract**
 
-[View Presentation Slides (PDF)](Presentations/01_EDLC_Crumpled_Graphene/Presentation.pdf)
+![Graphical Abstract - EDLC Supercapacitor](Academic%20Presentations/EDLC%20Supercapacitor/graphical%20abstract%20EDLC%20supercapacitor.png)
 
--->
+*Graphical overview of EDLC energy storage and the computational investigation of crumpled graphene-based supercapacitors.*
+
+**Presentation Slides:** [View Complete EDLC Supercapacitor Presentation (PDF) →](Academic%20Presentations/EDLC%20Supercapacitor/EDLC%20Supecapacitor%20Presentation1.pdf)
 
 ---
 
