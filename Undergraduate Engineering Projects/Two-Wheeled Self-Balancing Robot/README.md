@@ -21,6 +21,16 @@ The study demonstrated the effectiveness of metaheuristic-based controller tunin
 
 ---
 
+## Graphical Abstract
+
+<p align="center">
+  <img src="graphical%20abstruct.png" alt="Graphical Abstract of Two-Wheeled Self-Balancing Robot" width="750">
+</p>
+
+*Graphical overview of the mathematical modeling, controller tuning, and performance evaluation of the two-wheeled self-balancing robot.*
+
+---
+
 ## Project Report
 
 **[View Technical Project Report →](Project_Report.pdf)**
