@@ -27,9 +27,25 @@ The project applies both analytical and simulation engineering methods to evalua
 
 ---
 
-## Project Report
+### 3. Analytical and Simulation Stress Analysis of Bicycle Components
 
-*Technical project report to be uploaded.*
+**Undergraduate Engineering Project | Machine Design | Engineering Mechanics | Stress Analysis**
+
+[**Explore Project Folder →**](Undergraduate%20Engineering%20Projects/Analytical%20and%20Simulation%20Stress%20Analysis%20of%20Bicycle%20Components/)
+
+This project investigates the structural behavior of bicycle components through **analytical stress calculations and engineering simulation**.
+
+The study focuses on mechanical loading, stress distribution, and structural assessment using principles of engineering mechanics and machine design.
+
+**Graphical Abstract**
+
+![Graphical Abstract - Bicycle Component Stress Analysis](Undergraduate%20Engineering%20Projects/Analytical%20and%20Simulation%20Stress%20Analysis%20of%20Bicycle%20Components/graphical%20abstruct.png)
+
+*Graphical overview of the analytical and simulation-based stress analysis of bicycle components.*
+
+**Project Report:** [View Complete Technical Project Report (PDF) →](PASTE_REPORT_URL_HERE)
+
+---
 
 ---
 
