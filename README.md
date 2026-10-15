@@ -128,21 +128,24 @@ A comparative evaluation of **P, PI, and PID controllers** was conducted using *
 ---
 
 
-### 2. Design and Fabrication of a Solar Collector Thermosyphon type Heat Exchanger using HTRI
+### 2. Design and Fabrication of a Solar Collector Thermosyphon-Type Heat Exchanger Using HTRI
 
-**Heat Transfer | Thermal System Design | HTRI**
+**Heat Transfer | Thermal System Design | HTRI | Fabrication**
 
-This project involved the design and fabrication of a **solar-collector thermosyphon-type double-pipe heat exchanger with longitudinal fins**.
+[**Explore Project Folder →**](Undergraduate%20Engineering%20Projects/Design%20and%20Fabrication%20of%20Solar%20Collector%20Thermosyphon%20Heat%20Exchanger/)
 
-The work incorporated **HTRI software** in the engineering design process, focusing on heat transfer characteristics and practical thermal system design.
+This project involved the **design and fabrication of a solar-collector thermosyphon-type double-pipe heat exchanger with longitudinal fins**.
 
-**Project Report:** *PDF to be uploaded.*
+The work incorporated **HTRI software** in the engineering design process, focusing on heat transfer analysis, thermal system design, and practical fabrication.
 
-<!-- Activate after uploading the project report:
+**Graphical Abstract**
 
-[View Project Report (PDF)](Undergraduate_Projects/02_Solar_Thermosyphon_Heat_Exchanger/Project_Report.pdf)
+![Graphical Abstract - Solar Collector Thermosyphon Heat Exchanger](Undergraduate%20Engineering%20Projects/Design%20and%20Fabrication%20of%20Solar%20Collector%20Thermosyphon%20Heat%20Exchanger/graphical%20abstruct.png)
 
--->
+*Graphical overview of the design, thermal analysis, and fabrication of the solar collector thermosyphon-type heat exchanger.*
+
+**Project Report:** [View Complete Technical Project Report (PDF) →](Undergraduate%20Engineering%20Projects/Design%20and%20Fabrication%20of%20Solar%20Collector%20Thermosyphon%20Heat%20Exchanger/Technical%20Project%20Report%20of%20Solar%20Collector%20Thermosyphon%20Type%20Heat%20Exchanger%20Design%20and%20Fabrication.pdf)
+
 
 ---
 
