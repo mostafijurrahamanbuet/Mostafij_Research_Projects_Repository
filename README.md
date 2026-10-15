@@ -33,10 +33,23 @@ The research aims to identify promising filler configurations for enhancing ther
 
 **Research Files**
 
-- **Simulation Code:** LAMMPS input scripts and force-field configurations — *Upload pending*
-- **Simulation Data:** Molecular structures and LAMMPS data files — *Upload pending*
-- **Analysis Code:** Python scripts for thermal conductivity calculations and post-processing — *Upload pending*
-- **Graphical Abstract:** Schematic overview of the simulation methodology — *To be added*
+
+**Research Files**
+
+The repository provides the LAMMPS simulation scripts, molecular structures, interatomic potentials, and Python tools used for molecular structure preparation and NEMD data analysis.
+
+| Research Materials | Description | Access |
+|---|---|---|
+| **LAMMPS Simulation Scripts** | Energy minimization, NPT equilibration, and NEMD thermal conductivity simulations | [Explore Simulation Code →](PDMS_hBN/MD%20code/) |
+| **Molecular Structures & Simulation Data** | PDB molecular structures and LAMMPS-compatible data files | [Explore Simulation Data →](PDMS_hBN/Data%20file/) |
+| **Interatomic Force Fields** | B–N–C Tersoff potential parameters | [View Force Fields →](PDMS_hBN/Force%20field/) |
+| **Python: Molecular Structure Preparation** | PDB-to-LAMMPS data conversion and molecular topology preparation | [Explore Python Code →](PDMS_hBN/Structure%20Preparation/) |
+| **Python: NEMD Thermal Transport Analysis** | Temperature-profile processing and thermostat energy-exchange data extraction | [Explore Analysis Codes →](PDMS_hBN/Analysis%20Code/) |
+| **Graphical Abstract** | Schematic overview of the molecular dynamics workflow and potential thermal interface material application | [View Graphical Abstract →](PDMS_hBN/graphical_abstract.png) |
+| **Representative Molecular Structure** | Atomistic configuration of a graphene/h-BN hybrid filler embedded in PDMS | [View Molecular Structure →](PDMS_hBN/Circular_BNC_PDMS_composite.png) |
+
+**Explore Complete Research Project:** [Thermal Conductivity Enhancement in PDMS-Based Nanocomposites →](PDMS_hBN/)
+
 
 **Conference Presentation — ASME IMECE 2026**
 
@@ -52,7 +65,7 @@ The research aims to identify promising filler configurations for enhancing ther
 
 **Presentation Slides:** *To be uploaded after the conference presentation.*
 
-**Research Status:** Manuscript in preparation.
+**Research Status:** Manuscript in preparation. Numerical results are not publicly included at this stage.
 
 ---
 
@@ -87,8 +100,6 @@ The following research materials, molecular structures, simulation scripts, and 
 
 **Research Status:** Manuscript in preparation. Numerical results are not publicly included at this stage.
 
-
-**Research Status:** Manuscript in preparation.
 
 ---
 
