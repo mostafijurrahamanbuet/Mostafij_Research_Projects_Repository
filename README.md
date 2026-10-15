@@ -226,13 +226,9 @@ This presentation examined the comparative performance of **P, PI, and PID contr
 
 The discussion focused on controller tuning approaches, dynamic response characteristics, stability, and comparative control performance.
 
-**Presentation Slides:** *PDF to be uploaded.*
 
-<!-- Activate after uploading the slides:
+**Presentation Slides:** [View Complete Self-Balancing Robot Presentation (PPTX) →](Academic%20Presentations/Self-Balancing%20Robot/Self%20Balencing%20Robot.pptx)
 
-[View Presentation Slides (PDF)](Presentations/02_Self_Balancing_Robot_Control/Presentation.pdf)
-
--->
 
 ---
 
