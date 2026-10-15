@@ -91,16 +91,14 @@ This research investigates the **self-diffusion behavior of CO₂ under varying 
 
 The study evaluates the effects of **gas loading and framework pore characteristics** on molecular mobility. Mean-square displacement (MSD) analysis is used to estimate CO₂ self-diffusion coefficients and investigate directional differences in molecular transport.
 
+![Graphical Abstract - CO₂ Diffusion in MOFs](MOF_CO2_Difussion_New/graphical%20abstruct.png)
+
+*Graphical overview of the molecular dynamics workflow for investigating CO₂ self-diffusion in MOFs under N₂ co-loading and varying pore-size conditions.*
+
 **Research Files**
 
-- **Simulation Code:** LAMMPS input scripts and simulation configurations — *Upload pending*
-- **Simulation Data:** MOF structures and molecular simulation data files — *Upload pending*
-
-<!-- Optional graphical abstract for future addition:
-
-![Graphical Abstract - CO2 Diffusion in MOFs](MOF_CO2_Difussion_New/figures/graphical_abstract.png)
-
--->
+- **Simulation Code:** LAMMPS input scripts, force-field settings, and MSD calculations — [View Files](MOF_CO2_Difussion_New/MD%20code%20with%20force%20field/)
+- **Simulation Data:** MOF structures and molecular simulation data files — [View Files](MOF_CO2_Difussion_New/Data%20file/)
 
 **Research Status:** Ongoing.
 
