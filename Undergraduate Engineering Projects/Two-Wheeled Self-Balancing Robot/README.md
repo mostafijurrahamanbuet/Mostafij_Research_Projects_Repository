@@ -33,9 +33,12 @@ The study demonstrated the effectiveness of metaheuristic-based controller tunin
 
 ## Project Report
 
-**[View Technical Project Report →](Project_Report.pdf)**
 
-*The report will be uploaded after final verification.*
+## Project Report
+
+**[View Technical Project Report →](Project_Report%20of%20Self%20Balencing%20Robot.pdf)**
+
+The complete technical report includes the mathematical modeling, controller design, optimization methodology, and comparative performance evaluation of the two-wheeled self-balancing robot.
 
 ---
 
