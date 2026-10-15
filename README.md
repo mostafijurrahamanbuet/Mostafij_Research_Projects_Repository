@@ -106,25 +106,29 @@ The study evaluates the effects of **gas loading and framework pore characterist
 
 ## Undergraduate Engineering Projects
 
-### 1. Comparative Analysis and Performance Evaluation of a Two-Wheeled Self-Balancing Robot
 
-**Control Engineering | PID Control | Metaheuristic Optimization**
+### 1. Comparative Analysis and Performance Evaluation of a Two-Wheeled Self-Balancing Robot using P, PI, and PID controllers
 
-This project evaluates the performance of a two-wheeled self-balancing robot using **proportional (P), proportional-integral (PI), and proportional-integral-derivative (PID) controllers** tuned through metaheuristic optimization algorithms.
+**Control Engineering | Dynamic Modeling | PID Control | Metaheuristic Optimization | MATLAB**
 
-The study focuses on comparing different control strategies and their effectiveness in maintaining the robot's stability and dynamic performance.
+[**Explore Project Folder →**](Undergraduate%20Engineering%20Projects/Two-Wheeled%20Self-Balancing%20Robot/)
 
-**Project Report:** *PDF to be uploaded.*
+This project investigates the dynamic stability and control performance of a two-wheeled self-balancing robot through mathematical modeling and MATLAB-based simulation. The robot was modeled as an inverted pendulum using Euler–Lagrange equations, followed by linearization and state-space analysis.
 
-<!-- Activate after uploading the project report:
+A comparative evaluation of **P, PI, and PID controllers** was conducted using **Genetic Algorithm (GA), Clonal Selection Algorithm (CSA), Ziegler–Nichols tuning, and MATLAB Auto-Tuner**. Controller performance was assessed through rise time, settling time, overshoot, and undershoot.
 
-[View Project Report (PDF)](Undergraduate_Projects/01_Self_Balancing_Robot/Project_Report.pdf)
+**Graphical Abstract**
 
--->
+![Graphical Abstract - Two-Wheeled Self-Balancing Robot](Undergraduate%20Engineering%20Projects/Two-Wheeled%20Self-Balancing%20Robot/graphical%20abstruct.png)
+
+*Graphical overview of the mathematical modeling, controller tuning, and comparative performance evaluation of the two-wheeled self-balancing robot.*
+
+**Project Report:** [View Technical Project Report →](Undergraduate%20Engineering%20Projects/Two-Wheeled%20Self-Balancing%20Robot/Project_Report%20of%20Self%20Balencing%20Robot.pdf)
 
 ---
 
-### 2. Design and Fabrication of a Solar Thermosyphon Heat Exchanger
+
+### 2. Design and Fabrication of a Solar Collector Thermosyphon type Heat Exchanger using HTRI
 
 **Heat Transfer | Thermal System Design | HTRI**
 
