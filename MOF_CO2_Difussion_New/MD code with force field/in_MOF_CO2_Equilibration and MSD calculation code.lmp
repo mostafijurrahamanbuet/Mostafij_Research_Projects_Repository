@@ -1,0 +1,184 @@
+# -------- Initialization --------
+units           real
+
+dimension       3
+
+boundary        p    p    p
+
+atom_style      full
+
+read_data       MOF5_1x1x1_DFT_charged_16CO2_TraPPE.lmp
+
+
+bond_style      harmonic
+
+angle_style     harmonic
+
+bond_coeff      1   0.0   1.16      # C-O, K=0 (bookkeeping only)
+
+angle_coeff     1   0.0   180.0     # O-C-O, K=0 (bookkeeping only)
+
+pair_style      lj/cut/coul/long 13.0
+
+kspace_style    pppm 1e-5
+
+special_bonds   lj/coul 0.0 0.0 1.0
+
+
+pair_modify     mix arithmetic
+
+# Framework atom types (from Table 2, IRMOF-1 column; Zn from UFF):
+
+pair_coeff  1  1   0.12400   2.46     # Zn                (UFF)
+
+pair_coeff  2  2   0.12601   2.96     # O_central (mu4-O)  -- see NOTE below
+
+pair_coeff  3  3   0.12601   2.96     # O_carboxylate       (OPLS-AA "O", refined)
+
+pair_coeff  4  4   0.10500   3.75     # C_carboxylate       (OPLS-AA Ccarboxyl)
+
+pair_coeff  5  5   0.05600   3.55     # C_ipso  (aromatic)  (OPLS-AA Cbenzene, refined)
+
+pair_coeff  6  6   0.05600   3.55     # C_CH    (aromatic)  (OPLS-AA Cbenzene, refined)
+
+pair_coeff  7  7   0.03001   2.42     # H (aromatic)        (OPLS-AA Hbenzene)
+
+
+# CO2 atom types (TraPPE, Potoff & Siepmann 2001):
+
+pair_coeff  8  8   0.05365   2.80     # C  (CO2)
+
+pair_coeff  9  9   0.15699   3.05     # O  (CO2)
+
+# --------- Neighbor settings -------------------------------
+
+neighbor        2.0 bin
+
+neigh_modify    every 1 delay 0 check yes
+
+# ---------- Groups -------------
+
+group MOF type 1 2 3 4 5 6 7
+
+group CO2 type 8 9
+
+# ---------- Freeze the MOF (rigid-framework study, matches paper Sec 2.4) ------
+
+velocity MOF set 0.0 0.0 0.0
+
+fix MOF_force MOF setforce 0.0 0.0 0.0
+
+
+
+# ---- Diagnostic re-check: confirm E_vdwl is now sane before continuing ----
+
+fix relax_rigid CO2 rigid/nve/small molecule
+
+fix relax_damp  CO2 viscous 5.0
+
+velocity CO2 create 10 49280 rot yes dist gaussian
+
+run 0
+
+velocity CO2 scale 10
+
+thermo          100
+thermo_style    custom step temp etotal evdwl ecoul elong pe ke
+
+dump            relax_dump all custom 100 relax_CO2.lammpstrj id mol type x y z
+dump_modify     relax_dump sort id
+
+timestep        0.5
+run             40000
+
+unfix relax_damp
+unfix relax_rigid
+undump relax_dump
+
+write_data          MOF5_CO2_relaxed.data
+
+ 
+
+fix 1 CO2 rigid/nvt/small molecule temp 298.0 298.0 100.0
+
+velocity CO2 create 298 49280 rot yes dist gaussian
+
+run 0
+
+velocity CO2 scale 298
+
+compute CO2Temp CO2 temp
+
+thermo          1000
+thermo_style    custom step temp c_CO2Temp etotal ke pe lx ly lz
+restart         100000 restart.*.equil
+timestep        0.5
+dump            1 all custom 1000 MOF5_CO2_NVT.lammpstrj id mol type x y z
+run             400000              # 400,000 x 0.5 fs = 200 ps (matches paper's 100,000 x 2 fs)
+write_data      MOF5_CO2_NVT.data
+unfix 1
+undump 1
+
+ 
+# =============================================================================
+
+fix 2 CO2 rigid/nve/small molecule
+
+thermo          1000
+
+thermo_style    custom step temp c_CO2Temp etotal ke pe lx ly lz press
+
+dump            2 all custom 1000 MOF5_CO2_NVE.lammpstrj id mol type x y z
+
+run             2000000
+
+write_data      MOF5_CO2_NVE.data
+
+unfix 2
+undump 2
+
+
+ 
+
+group CO2_C  type 8      # one atom per CO2 molecule; for a rigid, linear,
+                          # symmetric CO2 (two identical O atoms equidistant from
+                          # C) the carbon atom position is EXACTLY the molecular
+                          # center of mass by symmetry -- no approximation here.
+
+restart         100000 msd_restart.*
+
+fix 2 CO2 rigid/nve/small molecule
+
+ 
+reset_timestep  0
+
+compute msd_co2 CO2_C msd com yes
+
+ 
+
+variable twopoint  equal c_msd_co2[4]/6/(step*dt+1.0e-6)
+
+fix 9 all vector 1000 c_msd_co2[4]
+
+variable fitslope  equal slope(f_9)/6/(1000*dt)
+
+ 
+
+thermo          1000
+
+thermo_style    custom step temp c_msd_co2[1] c_msd_co2[2] c_msd_co2[3] c_msd_co2[4] v_twopoint v_fitslope
+
+# raw MSD-vs-time data, saved for the final fit in Python (use only the
+# well-converged linear-regime portion of msd_co2.dat for the final D fit --
+# discard the early ballistic/sub-diffusive part, typically the first ~10-20%)
+
+fix msd_out CO2_C ave/time 1000 1 1000 c_msd_co2[1] c_msd_co2[2] c_msd_co2[3] c_msd_co2[4] file msd_co2.dat
+
+timestep        0.5
+
+run             2000000        # 2,000,000 x 0.5 fs = 1.0 ns, matches the paper's
+                                # 500,000-step x 2.0 fs = 1.0 ns production/sampling window
+
+write_restart   restart.msd_final.equil
+
+ 
