@@ -19,6 +19,12 @@ The project provided practical experience in thermal system design, heat transfe
 
 ---
 
+## Graphical Abstract
+
+![Graphical Abstract - Solar Collector Thermosyphon Heat Exchanger](graphical%20abstruct.png)
+
+*Graphical overview of the design and fabrication of the solar collector thermosyphon-type heat exchanger.*
+
 ## Design and Methodology
 
 The project involved:
