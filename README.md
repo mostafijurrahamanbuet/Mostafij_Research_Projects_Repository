@@ -171,21 +171,25 @@ The work incorporated **HTRI software** in the engineering design process, focus
 
 ---
 
-### 3. Analytical Stress Analysis of Bicycle Components
+### 3. Analytical and Simulation Stress Analysis of Bicycle Components
 
-**Machine Design | Engineering Mechanics | Stress Analysis**
+**Undergraduate Engineering Project | Machine Design | Engineering Mechanics | Stress Analysis**
 
-This project involved the analytical evaluation of mechanical stresses in bicycle components using principles of **solid mechanics and machine design**.
+[**Explore Project Folder →**](Undergraduate%20Engineering%20Projects/Analytical%20and%20Simulation%20Stress%20Analysis%20of%20Bicycle%20Components/)
 
-The work focused on assessing mechanical loading and the resulting stress distribution in selected structural components.
+This project investigates the structural behavior of bicycle components through **analytical stress calculations and engineering simulation**.
 
-**Project Report:** *PDF to be uploaded.*
+The study examines mechanical loading and stress distribution using principles of engineering mechanics, strength of materials, and machine design. The analytical stress calculations were subsequently examined through engineering simulation to evaluate the structural response of selected bicycle components.
 
-<!-- Activate after uploading the project report:
+**Graphical Abstract**
 
-[View Project Report (PDF)](Undergraduate_Projects/03_Bicycle_Stress_Analysis/Project_Report.pdf)
+![Graphical Abstract - Bicycle Component Stress Analysis](Undergraduate%20Engineering%20Projects/Analytical%20and%20Simulation%20Stress%20Analysis%20of%20Bicycle%20Components/graphical%20abstruct.png)
 
--->
+*Graphical overview of the analytical and simulation-based stress analysis of bicycle components.*
+
+**Project Report:** [View Complete Technical Project Report (PDF) →](Undergraduate%20Engineering%20Projects/Analytical%20and%20Simulation%20Stress%20Analysis%20of%20Bicycle%20Components/Analytical%20and%20Simulation%20Stress%20calculation%20of%20Bicycle%20components.pdf)
+
+---
 
 ---
 
