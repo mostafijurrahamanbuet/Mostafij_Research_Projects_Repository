@@ -19,15 +19,18 @@ The presentation materials will include a graphical abstract and the complete pr
 
 ---
 
+
 ## 2. Two-Wheeled Self-Balancing Robot
 
-**Research Area:** Control Engineering | Dynamic Modeling | PID Control
+**Academic Presentation | Control Engineering | MATLAB | PID Control**
 
-[**Explore Robot Presentation →**](Self-Balancing%20Robot/)
+[**Explore Presentation Folder →**](Self-Balancing%20Robot/)
 
-This presentation covers the mathematical modeling and controller performance evaluation of a two-wheeled self-balancing robot, including P, PI, and PID control strategies.
+This presentation investigates the mathematical modeling and control performance of a two-wheeled self-balancing robot using P, PI, and PID controllers.
 
-The complete presentation slides will be available in the project directory.
+Different tuning methods, including Genetic Algorithm (GA), Clonal Selection Algorithm (CSA), Ziegler–Nichols, and MATLAB Auto-Tuner, are compared based on dynamic response characteristics.
+
+**Presentation Slides:** [View Complete PowerPoint Presentation (PPTX) →](Self-Balancing%20Robot/Self%20Balencing%20Robot.pptx)
 
 ---
 
