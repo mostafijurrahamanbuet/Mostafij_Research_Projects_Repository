@@ -49,7 +49,7 @@ The project involved:
 
 ## Project Report
 
-*Technical project report to be uploaded.*
+*[Technical Report]([url](https://github.com/mostafijurrahamanbuet/Mostafij_Research_Projects_Repository/blob/main/Undergraduate%20Engineering%20Projects/Design%20and%20Fabrication%20of%20Solar%20Collector%20Thermosyphon%20Heat%20Exchanger/Technical%20Project%20Report%20of%20Solar%20Collector%20Thermosyphon%20Type%20Heat%20Exchanger%20Design%20and%20Fabrication.pdf)).*
 
 ---
 
