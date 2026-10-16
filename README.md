@@ -13,7 +13,7 @@ My research focuses on atomistic simulations of thermal transport and molecular 
 
 ---
 
-## Research Studies
+## Research Projects
 
 ### 1. Thermal Conductivity Enhancement in PDMS-Based Nanocomposites with 2D Fillers
 
